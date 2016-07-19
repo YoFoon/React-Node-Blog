@@ -1,0 +1,161 @@
+$screen-xs:                  480px;
+//** `$screen-xs-min`
+$screen-xs-min:              $screen-xs;
+//** `$screen-phone`
+$screen-phone:               $screen-xs-min;
+
+// Small screen / tablet
+//** `$screen-sm`
+$screen-sm:                  768px;
+$screen-sm-min:              $screen-sm;
+//** `$screen-tablet`
+$screen-tablet:              $screen-sm-min;
+
+// Medium screen / desktop
+//** `$screen-md`
+$screen-md:                  992px;
+$screen-md-min:              $screen-md;
+//** `$screen-desktop`
+$screen-desktop:             $screen-md-min;
+
+// Large screen / wide desktop
+//** `$screen-lg`
+$screen-lg:                  1200px;
+$screen-lg-min:              $screen-lg;
+//** `$screen-lg-desktop`
+$screen-lg-desktop:          $screen-lg-min;
+
+
+$screen-xs-max:              ($screen-sm-min - 1);
+$screen-sm-max:              ($screen-md-min - 1);
+$screen-md-max:              ($screen-lg-min - 1);
+
+@mixin ele-hide{
+    display: none !important;
+}
+@mixin responsive-visibility{
+    display: block !important;
+}
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+    @include ele-hide;
+}
+.visible-xs-block,
+.visible-xs-inline,
+.visible-xs-inline-block,
+.visible-sm-block,
+.visible-sm-inline,
+.visible-sm-inline-block,
+.visible-md-block,
+.visible-md-inline,
+.visible-md-inline-block,
+.visible-lg-block,
+.visible-lg-inline,
+.visible-lg-inline-block {
+  display: none !important;
+}
+
+.visible-xs {
+  @media (max-width: $screen-xs-max) {
+    @include responsive-visibility;
+  }
+}
+.visible-xs-block {
+  @media (max-width: $screen-xs-max) {
+    display: block !important;
+  }
+}
+.visible-xs-inline {
+  @media (max-width: $screen-xs-max) {
+    display: inline !important;
+  }
+}
+.visible-xs-inline-block {
+  @media (max-width: $screen-xs-max) {
+    display: inline-block !important;
+  }
+}
+.visible-sm {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @include responsive-visibility;
+  }
+}
+.visible-sm-block {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    display: block !important;
+  }
+}
+.visible-sm-inline {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    display: inline !important;
+  }
+}
+.visible-sm-inline-block {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    display: inline-block !important;
+  }
+}
+.visible-md {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @include responsive-visibility;
+  }
+}
+.visible-md-block {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    display: block !important;
+  }
+}
+.visible-md-inline {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    display: inline !important;
+  }
+}
+.visible-md-inline-block {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    display: inline-block !important;
+  }
+}
+
+.visible-lg {
+  @media (min-width: $screen-lg-min) {
+    @include responsive-visibility;
+  }
+}
+.visible-lg-block {
+  @media (min-width: $screen-lg-min) {
+    display: block !important;
+  }
+}
+.visible-lg-inline {
+  @media (min-width: $screen-lg-min) {
+    display: inline !important;
+  }
+}
+.visible-lg-inline-block {
+  @media (min-width: $screen-lg-min) {
+    display: inline-block !important;
+  }
+}
+
+.hidden-xs {
+  @media (max-width: $screen-xs-max) {
+    @include ele-hide;
+  }
+}
+.hidden-sm {
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    @include ele-hide;
+  }
+}
+.hidden-md {
+  @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @include ele-hide;
+  }
+}
+.hidden-lg {
+  @media (min-width: $screen-lg-min) {
+    @include ele-hide;
+  }
+}

@@ -1,0 +1,38 @@
+.abso-layout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto; }
+
+.eachBlog {
+  line-height: 1.6rem;
+  margin-bottom: 4.16667rem; }
+  .eachBlog .title {
+    margin-bottom: 1rem;
+    line-height: 3rem;
+    font-size: 2rem;
+    transition: all 350ms; }
+    .eachBlog .title a {
+      color: #666; }
+      .eachBlog .title a:hover {
+        color: gray;
+        text-decoration: underline; }
+  .eachBlog article {
+    max-height: 16.66667rem;
+    overflow: hidden; }
+  .eachBlog .meta {
+    margin: 1rem 0;
+    font-size: .85rem;
+    color: #ccc; }
+    .eachBlog .meta span {
+      margin: 0 3px; }
+    .eachBlog .meta .tag a {
+      margin-left: 3px;
+      padding: .167rem .25rem;
+      transition: all 350ms;
+      text-transform: uppercase;
+      color: #f8f8f8;
+      border-radius: .25rem;
+      background-color: rgba(234, 97, 83, 0.7); }

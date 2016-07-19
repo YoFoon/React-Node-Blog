@@ -1,0 +1,12 @@
+//引入antd ui
+@import 'component/antd.min.css';
+//引入基础样式
+@import 'base';
+//引入响应式库
+@import 'component/visible';
+//引入边栏样式
+@import 'component/sideNav';
+//引入博文列表样式
+@import 'component/listPage';
+//引入博文详情页样式
+@import 'component/detail';

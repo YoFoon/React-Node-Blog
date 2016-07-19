@@ -1,0 +1,13 @@
+#ds-thread #ds-reset .ds-meta,#ds-thread #ds-reset .ds-powered-by,.ds-toolbar-buttons,.ds-dialog-footer{
+    display: none;
+}
+.header{
+    margin: .7em 0;
+    font-size: .85rem;
+    color: #ccc;
+    text-align: center;
+    span{
+        display: inline-block;
+        margin: 0 2px;
+    }
+}

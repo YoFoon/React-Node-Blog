@@ -7695,8 +7695,10 @@ webpackJsonp([0],[
 	var SERVICE_URL = 'http://127.0.0.1:8000/';
 	
 	var ServiceConfig = {
+	    baseUrl: SERVICE_URL,
+	    commentUrl: SERVICE_URL + 'view/blog/#/depail/',
 	    getList: SERVICE_URL + 'blog/list',
-	    getBlog: SERVICE_URL + 'blog/list'
+	    getBlog: SERVICE_URL + 'blog/detail/'
 	};
 	
 	exports.default = ServiceConfig;
@@ -7764,7 +7766,7 @@ webpackJsonp([0],[
 	
 	            var item = this.props.item;
 	
-	            return _react2.default.createElement('div', { className: 'eachBlog' }, _react2.default.createElement('h2', { className: 'title' }, _react2.default.createElement(_reactRouter.Link, { to: "/detail/" + item._id }, item.title)), _react2.default.createElement('article', { dangerouslySetInnerHTML: { __html: item.post } }), _react2.default.createElement('div', { className: 'meta' }, _react2.default.createElement('span', { className: 'time' }, item.time.day), _react2.default.createElement('span', { className: 'tag' }, 'on', _react2.default.createElement('a', null, item.tags)), _react2.default.createElement('span', { className: 'read' }, item.read, ' Read')));
+	            return _react2.default.createElement('div', { className: 'eachBlog' }, _react2.default.createElement('h2', { className: 'title' }, _react2.default.createElement(_reactRouter.Link, { to: "/detail/" + item.key }, item.title)), _react2.default.createElement('article', { dangerouslySetInnerHTML: { __html: item.post } }), _react2.default.createElement('div', { className: 'meta' }, _react2.default.createElement('span', { className: 'time' }, item.time.day), _react2.default.createElement('span', { className: 'tag' }, 'on', _react2.default.createElement('a', null, item.tags)), _react2.default.createElement('span', { className: 'read' }, item.read, ' Read')));
 	        }
 	    }]);
 	
@@ -7941,11 +7943,11 @@ webpackJsonp([0],[
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            var that = this;
-	            _superagent2.default.post(_server2.default.getBlog).send({ _id: that.props.params.title }).end(function (err, res) {
+	            _superagent2.default.get(_server2.default.getBlog + that.props.params.title).end(function (err, res) {
 	                res = JSON.parse(res.text);
 	
 	                that.state.flag = true;
-	                that.state.item = res.items[0];
+	                that.state.item = res.item[0];
 	                that.setState({
 	                    flag: true
 	                });
@@ -8080,6 +8082,10 @@ webpackJsonp([0],[
 	
 	var _reactRouter = __webpack_require__(172);
 	
+	var _server = __webpack_require__(249);
+	
+	var _server2 = _interopRequireDefault(_server);
+	
 	function _interopRequireDefault(obj) {
 	    return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -8101,60 +8107,6 @@ webpackJsonp([0],[
 	        throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
 	    }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 	}
-	
-	// let Article = React.createClass({
-	
-	//     getInitialState: ()=> {
-	//         return {falg: false};
-	//     },
-	
-	//     //mixins = [ Lifecycle ],
-	
-	//     routerWillLeave: () => {
-	//         if(document.getElementById("duoshuo")){
-	//             this.state.flag = true;
-	//         }
-	//     },
-	
-	//     componentDidMount: () => {
-	//         window.duoshuoQuery = {short_name:"yofoon"};
-	
-	//         if(this.state.flag){
-	//             DUOSHUO.EmbedThread(document.getElementById("duoshuo_node"));
-	//             return false;
-	//         }
-	
-	//         ( () =>{
-	
-	//             let ds = document.createElement('script');
-	//             ds.type = 'text/javascript';
-	//             ds.async = true;
-	//             ds.id="duoshuo";
-	//             ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	//             ds.charset = 'UTF-8';
-	//             document.getElementsByTagName('body')[0].appendChild(ds);
-	
-	//         } )()
-	//     },
-	
-	//     render: () => {
-	//         var item = this.props.item;
-	
-	//         // return (
-	//         //     <Row>
-	//         //         <Col span={22} offset={1} className="pt2 pb2" >
-	//         //             <div id="duoshuo_node" className={this.state.flag ? "" : "ds-thread" } data-thread-key="YoFoon" data-title={item.title} data-url={"http://localhost:3000/view/blog/#/depail/"+item._id}></div>
-	//         //         </Col>
-	//         //     </Row>
-	//         // );
-	//         return (
-	//             <div>Hello</div>
-	//         )
-	//     }
-	
-	// })
-	
-	// export default Article;
 	
 	var Article = function (_Component) {
 	    _inherits(Article, _Component);
@@ -8202,7 +8154,7 @@ webpackJsonp([0],[
 	        key: 'render',
 	        value: function render() {
 	            var item = this.props.item;
-	            return _react2.default.createElement(_row2.default, null, _react2.default.createElement(_col2.default, { span: 22, offset: 1, className: 'pt2 pb2' }, _react2.default.createElement('div', { id: 'duoshuo_node', className: this.state.flag ? "" : "ds-thread", 'data-thread-key': 'YoFoon', 'data-title': item.title, 'data-url': "http://localhost:3000/view/blog/#/depail/" + item._id })));
+	            return _react2.default.createElement(_row2.default, null, _react2.default.createElement(_col2.default, { span: 22, offset: 1, className: 'pt2 pb2' }, _react2.default.createElement('div', { id: 'duoshuo_node', className: this.state.flag ? "" : "ds-thread", 'data-thread-key': 'YoFoon', 'data-title': item.title, 'data-url': _server2.default.commentUrl + item.key })));
 	        }
 	    }]);
 	

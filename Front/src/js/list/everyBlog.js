@@ -13,7 +13,7 @@ export default class EveryBlog extends React.Component {
 
         return(
             <div className="eachBlog">
-                <h2 className="title"><Link to={"/detail/"+item._id}>{item.title}</Link></h2>
+                <h2 className="title"><Link to={"/detail/"+item.key}>{item.title}</Link></h2>
                 <article dangerouslySetInnerHTML={{__html: item.post}}></article>
                 <div className="meta">
                     <span className="time">{item.time.day}</span>

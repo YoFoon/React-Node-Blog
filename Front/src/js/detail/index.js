@@ -22,13 +22,12 @@ export default class BlogDetail extends React.Component {
     componentDidMount() {
         let that = this;
         request
-            .post(ROUTER.getBlog)
-            .send({_id: that.props.params.title})
+            .get(ROUTER.getBlog + that.props.params.title)
             .end(function(err, res){
                 res = JSON.parse(res.text);
 
                 that.state.flag = true;
-                that.state.item = res.items[0];
+                that.state.item = res.item[0];
                 that.setState({
                     flag: true,
                 });

@@ -4,9 +4,17 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _index = require("../blog/index");
+var _getList = require("../blog/getList");
 
-var _index2 = _interopRequireDefault(_index);
+var _getList2 = _interopRequireDefault(_getList);
+
+var _saveBlog = require("../blog/saveBlog");
+
+var _saveBlog2 = _interopRequireDefault(_saveBlog);
+
+var _detail = require("../blog/detail");
+
+var _detail2 = _interopRequireDefault(_detail);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19,5 +27,12 @@ exports.default = function (app) {
         next();
     });
 
-    app.get("/blog/list/:page", _index2.default.getBlogList);
+    //获取文章列表
+    app.get("/blog/list/:page", _getList2.default);
+
+    //发表文章
+    app.post("/blog/post", _saveBlog2.default);
+
+    //获取文章详情
+    app.get("/blog/detail/:key", _detail2.default);
 };

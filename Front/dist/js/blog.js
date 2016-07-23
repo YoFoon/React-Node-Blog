@@ -7696,9 +7696,9 @@ webpackJsonp([0],[
 	
 	var ServiceConfig = {
 	    baseUrl: SERVICE_URL,
-	    commentUrl: SERVICE_URL + 'view/blog/#/depail/',
 	    getList: SERVICE_URL + 'blog/list',
-	    getBlog: SERVICE_URL + 'blog/detail/'
+	    getBlog: SERVICE_URL + 'blog/detail/',
+	    commentUrl: 'http://127.0.0.1:3000/' + 'view/blog/#/detail/'
 	};
 	
 	exports.default = ServiceConfig;
@@ -8154,7 +8154,7 @@ webpackJsonp([0],[
 	        key: 'render',
 	        value: function render() {
 	            var item = this.props.item;
-	            return _react2.default.createElement(_row2.default, null, _react2.default.createElement(_col2.default, { span: 22, offset: 1, className: 'pt2 pb2' }, _react2.default.createElement('div', { id: 'duoshuo_node', className: this.state.flag ? "" : "ds-thread", 'data-thread-key': 'YoFoon', 'data-title': item.title, 'data-url': _server2.default.commentUrl + item.key })));
+	            return _react2.default.createElement(_row2.default, null, _react2.default.createElement(_col2.default, { span: 22, offset: 1, className: 'pt2 pb2' }, _react2.default.createElement('div', { id: 'duoshuo_node', className: 'ds-thread', 'data-thread-key': item.key, 'data-title': item.title, 'data-url': _server2.default.commentUrl + item.key })));
 	        }
 	    }]);
 	

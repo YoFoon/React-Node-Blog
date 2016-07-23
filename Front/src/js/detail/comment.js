@@ -45,7 +45,7 @@ export default class Article extends Component {
         return (
             <Row>
                 <Col span={22} offset={1} className="pt2 pb2" >
-                    <div id="duoshuo_node" className={this.state.flag ? "" : "ds-thread" } data-thread-key="YoFoon" data-title={item.title} data-url={ROUTER.commentUrl+item.key}></div>
+                    <div id="duoshuo_node" className="ds-thread" data-thread-key={item.key} data-title={item.title} data-url={ROUTER.commentUrl+item.key}></div>
                 </Col>
             </Row>
         );

@@ -44,7 +44,7 @@ app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
 app.use((0, _cookieParser2.default)());
-app.use(_express2.default.static(_path2.default.join(__dirname, './public')));
+app.use(_express2.default.static(_path2.default.join(__dirname, '../public')));
 
 (0, _index2.default)(app);
 

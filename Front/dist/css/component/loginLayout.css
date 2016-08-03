@@ -1,0 +1,42 @@
+.login-contain {
+  background: #FFF url(/dist/images/blog-bg.jpg) center/cover no-repeat fixed;
+  background-size: 100% 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto; }
+
+.loginWrap {
+  margin-top: 100px; }
+  .loginWrap .title {
+    font-size: 30px;
+    color: #666;
+    text-align: center;
+    line-height: 50px; }
+  .loginWrap label {
+    padding: 5px 0; }
+  .loginWrap input {
+    margin: 0 5%;
+    width: 90%;
+    outline: none;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0 0 0px 1000px white inset; }
+  .loginWrap button {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #5cb85c; }

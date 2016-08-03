@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import showdown from 'showdown'; 
+
+
 export default class EveryBlog extends React.Component {
 
     constructor (props) {
@@ -10,6 +13,10 @@ export default class EveryBlog extends React.Component {
     render() {
         
         let item = this.props.item;
+
+        // let converter = new showdown.Converter();
+        // let text      = '#hello, markdown!';
+        // let html      = converter.makeHtml(text);
 
         return(
             <div className="eachBlog">

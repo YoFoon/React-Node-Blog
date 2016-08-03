@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { Row, Col } from 'antd';
 
 import SideNav from '../common/sideNav';
+import NavList from '../common/navList';
 import ListPage from './listPage';
-
 
 export default class BlogList extends React.Component {
 

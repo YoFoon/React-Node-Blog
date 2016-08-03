@@ -18,7 +18,7 @@ class App extends React.Component {
         return (
             <Row className="fullPage">
                 <Col xs={{span: 22, offset:1}} sm={{span: 22, offset:1}} md={{span: 8, offset:8}} className="proFile">
-                    <a href="#" className="photo">
+                    <a href="/view/login" className="photo">
                         <img src="/dist/images/blog-head.jpg" />
                     </a>
                     <h3>YoFoon</h3>

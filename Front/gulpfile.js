@@ -52,6 +52,13 @@ gulp.task('copy:images', function (done) {
         .on('end', done);
 });
 
+//将图标字体库拷贝到目标目录
+gulp.task('copy:icon', function (done) {
+    gulp.src(['src/icon/**/*'])
+        .pipe(gulp.dest('dist/icon'))
+        .on('end', done);
+});
+
 //压缩合并css, css中既有自己写的.less, 也有引入第三方库的.css
 gulp.task('sassmin', function (done) {
     return gulp.src(['src/css/**/*']) //匹配文件
@@ -129,9 +136,19 @@ gulp.task('img-res',function(){
 })
 
 gulp.task('watch', function (done) {
+
     gulp.watch('src/**/*', ['sassmin-dev', 'build-dev-js', 'fileinclude','copy:images'])
         .on('change', reload)
         .on('end', done);
+        
+});
+
+gulp.task('watcher', function() {
+    gulp.watch("src/css/**/*", ['sassmin-dev']).on('change', reload).on('end', done);
+    gulp.watch("src/js/**/*", ['build-dev-js']).on('change', reload).on('end', done);
+    gulp.watch("src/icon/**/*",['copy:icon']).on('change', reload).on('end', done);
+    gulp.watch("src/app/**/*",['fileinclude']).on('change', reload).on('end', done);
+    gulp.watch("src/images/**/*",['copy:images']).on('change',reload).on('end', done);
 });
 
 // 静态服务器
@@ -153,4 +170,4 @@ gulp.task('browser-sync', function() {
 //发布
 gulp.task('default', ['fileinclude', 'md5:css', 'md5:js', 'img-res']);
 //开发
-gulp.task('dev', ['browser-sync', 'copy:images','sassmin-dev', 'fileinclude',  'build-dev-js', 'watch']);
+gulp.task('dev', ['browser-sync', 'copy:images','copy:icon','sassmin-dev', 'fileinclude',  'build-dev-js', 'watch']);

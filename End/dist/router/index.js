@@ -16,13 +16,17 @@ var _detail = require("../blog/detail");
 
 var _detail2 = _interopRequireDefault(_detail);
 
+var _login = require("../login/login");
+
+var _login2 = _interopRequireDefault(_login);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (app) {
 
     app.all("*", function (req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Methods", "GET,POST");
+        res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
         res.header("Access-Control-Allow-Headers", "x-requested-with,content-type");
         next();
     });
@@ -35,4 +39,7 @@ exports.default = function (app) {
 
     //获取文章详情
     app.get("/blog/detail/:key", _detail2.default);
+
+    //登录
+    app.post("/blog/login", _login2.default);
 };

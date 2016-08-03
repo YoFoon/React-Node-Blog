@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose from './connect';
+// import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost/blog');
+// mongoose.connect('mongodb://localhost/blog');
 
 let BlogSchema = new mongoose.Schema({
     title: String,
@@ -14,7 +15,6 @@ let BlogSchema = new mongoose.Schema({
 
 //为BlogSchema模型追加addBlog方法
 BlogSchema.methods.addBlog = function (params, callback) {
-    console.log(params);
     this.title = params.title;
     this.name = params.name;
     this.tags = params.tags;

@@ -4,15 +4,17 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _mongoose = require('mongoose');
+var _connect = require('./connect');
 
-var _mongoose2 = _interopRequireDefault(_mongoose);
+var _connect2 = _interopRequireDefault(_connect);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_mongoose2.default.connect('mongodb://localhost/blog');
+// import mongoose from 'mongoose';
 
-var BlogSchema = new _mongoose2.default.Schema({
+// mongoose.connect('mongodb://localhost/blog');
+
+var BlogSchema = new _connect2.default.Schema({
     title: String,
     name: String,
     tags: String,
@@ -24,7 +26,6 @@ var BlogSchema = new _mongoose2.default.Schema({
 
 //为BlogSchema模型追加addBlog方法
 BlogSchema.methods.addBlog = function (params, callback) {
-    console.log(params);
     this.title = params.title;
     this.name = params.name;
     this.tags = params.tags;
@@ -37,6 +38,6 @@ BlogSchema.methods.addBlog = function (params, callback) {
 };
 
 // posts 是数据库的一个集合
-var Blog = _mongoose2.default.model('posts', BlogSchema);
+var Blog = _connect2.default.model('posts', BlogSchema);
 
 exports.default = Blog;

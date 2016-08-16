@@ -5990,7 +5990,7 @@ webpackJsonp([0],[
 	        key: 'render',
 	        value: function render() {
 	
-	            return _react2.default.createElement(_row2.default, { className: 'side-nav' }, _react2.default.createElement(_col2.default, { xs: { span: 22, offset: 1 }, sm: { span: 22, offset: 1 }, md: { span: 22, offset: 1 }, className: 'proFile' }, _react2.default.createElement('a', { href: '#', className: 'photo' }, _react2.default.createElement('img', { src: '/dist/images/blog-head.jpg' })), _react2.default.createElement('h3', null, 'YoFoon'), _react2.default.createElement('hr', { className: 'divide-line short-line' }), _react2.default.createElement('p', null, '努力向上吧，少年。'), _react2.default.createElement('hr', { className: 'divide-line short-line' }), _react2.default.createElement(_navList2.default, null), _react2.default.createElement(_row2.default, { type: 'flex', justify: 'center', align: 'middle', className: 'my-links mt1' }, _react2.default.createElement(_col2.default, { md: { span: 4 }, key: 'github', className: 'link-li' }, _react2.default.createElement('a', { className: 'github-icon' })), _react2.default.createElement(_col2.default, { md: { span: 4 }, key: 'weibo', className: 'link-li' }, _react2.default.createElement('a', { className: 'weibo-icon' })))));
+	            return _react2.default.createElement(_row2.default, { className: 'side-nav' }, _react2.default.createElement(_col2.default, { xs: { span: 22, offset: 1 }, sm: { span: 22, offset: 1 }, md: { span: 22, offset: 1 }, className: 'proFile' }, _react2.default.createElement('a', { href: '/view/login', className: 'photo' }, _react2.default.createElement('img', { src: '/dist/images/blog-head.jpg' })), _react2.default.createElement('h3', null, 'YoFoon'), _react2.default.createElement('hr', { className: 'divide-line short-line' }), _react2.default.createElement('p', null, '努力向上吧，少年。'), _react2.default.createElement('hr', { className: 'divide-line short-line' }), _react2.default.createElement(_navList2.default, null), _react2.default.createElement(_row2.default, { type: 'flex', justify: 'center', align: 'middle', className: 'my-links mt1' }, _react2.default.createElement(_col2.default, { md: { span: 4 }, key: 'github', className: 'link-li' }, _react2.default.createElement('a', { className: 'github-icon' })), _react2.default.createElement(_col2.default, { md: { span: 4 }, key: 'weibo', className: 'link-li' }, _react2.default.createElement('a', { className: 'weibo-icon' })))));
 	        }
 	    }]);
 	
@@ -7784,6 +7784,7 @@ webpackJsonp([0],[
 	    getList: SERVICE_URL + 'blog/list',
 	    getBlog: SERVICE_URL + 'blog/detail/',
 	    logIn: SERVICE_URL + 'blog/login',
+	    post: SERVICE_URL + 'blog/post',
 	    commentUrl: COMMENT_url + '/view/blog/#/detail/'
 	};
 	
@@ -7856,11 +7857,10 @@ webpackJsonp([0],[
 	
 	            var item = this.props.item;
 	
-	            // let converter = new showdown.Converter();
-	            // let text      = '#hello, markdown!';
-	            // let html      = converter.makeHtml(text);
+	            var converter = new _showdown2.default.Converter();
+	            var html = converter.makeHtml(item.post);
 	
-	            return _react2.default.createElement('div', { className: 'eachBlog' }, _react2.default.createElement('h2', { className: 'title' }, _react2.default.createElement(_reactRouter.Link, { to: "/detail/" + item.key }, item.title)), _react2.default.createElement('article', { dangerouslySetInnerHTML: { __html: item.post } }), _react2.default.createElement('div', { className: 'meta' }, _react2.default.createElement('span', { className: 'time' }, item.time.day), _react2.default.createElement('span', { className: 'tag' }, 'on', _react2.default.createElement('a', null, item.tags)), _react2.default.createElement('span', { className: 'read' }, item.read, ' Read')));
+	            return _react2.default.createElement('div', { className: 'eachBlog' }, _react2.default.createElement('h2', { className: 'title' }, _react2.default.createElement(_reactRouter.Link, { to: "/detail/" + item.key }, item.title)), _react2.default.createElement('article', { dangerouslySetInnerHTML: { __html: html } }), _react2.default.createElement('div', { className: 'meta' }, _react2.default.createElement('span', { className: 'time' }, item.time.day), _react2.default.createElement('span', { className: 'tag' }, 'on', _react2.default.createElement('a', null, item.tags)), _react2.default.createElement('span', { className: 'read' }, item.read, ' Read')));
 	        }
 	    }]);
 	
@@ -10642,6 +10642,10 @@ webpackJsonp([0],[
 	
 	var _superagent2 = _interopRequireDefault(_superagent);
 	
+	var _showdown = __webpack_require__(252);
+	
+	var _showdown2 = _interopRequireDefault(_showdown);
+	
 	function _interopRequireDefault(obj) {
 	    return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -10678,7 +10682,10 @@ webpackJsonp([0],[
 	        value: function render() {
 	            var item = this.props.item;
 	
-	            return _react2.default.createElement(_row2.default, null, _react2.default.createElement(_col2.default, { span: 22, offset: 1, className: 'pt2 pb2' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('span', null, item.time.day), _react2.default.createElement('span', null, item.tags), _react2.default.createElement('span', null, item.read, ' reads')), _react2.default.createElement('article', { className: 'content', dangerouslySetInnerHTML: { __html: item.post } })));
+	            var converter = new _showdown2.default.Converter();
+	            var html = converter.makeHtml(item.post);
+	
+	            return _react2.default.createElement(_row2.default, null, _react2.default.createElement(_col2.default, { span: 22, offset: 1, className: 'pt2 pb2' }, _react2.default.createElement('div', { className: 'header' }, _react2.default.createElement('span', null, item.time.day), _react2.default.createElement('span', null, item.tags), _react2.default.createElement('span', null, item.read, ' reads')), _react2.default.createElement('article', { className: 'content', dangerouslySetInnerHTML: { __html: html } })));
 	        }
 	    }]);
 	

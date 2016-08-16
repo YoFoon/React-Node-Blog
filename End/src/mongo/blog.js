@@ -22,6 +22,7 @@ BlogSchema.methods.addBlog = function (params, callback) {
     this.post = params.post;
     this.time = params.time;
     this.key = params.key;
+    this.mark = 1;
     
     this.save(callback);
 }

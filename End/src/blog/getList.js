@@ -10,7 +10,7 @@ export default (req, res) => {
     BlogInstance
         .find({})
         .limit(10)
-        .sort({time: -1})
+        .sort({_id: -1})
         .exec( (err, items) => {
 
             if(err) {

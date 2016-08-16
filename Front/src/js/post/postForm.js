@@ -5,6 +5,9 @@ import { Form, Input, Select, Button } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
+import ROUTER from '../router/server';
+import Pinyin from '../common/pinyin';
+
 export default class PostForm extends React.Component {
     constructor(props) {
         super(props);
@@ -13,9 +16,22 @@ export default class PostForm extends React.Component {
 
     handleSubmit(){
         let title = this.refs.title.refs.input.value;
-        let type = this.SeltctValue;
-        let content = this.refs.content.refs.input.value;
-        console.log(title,type,content);
+        let tag = this.SeltctValue;
+        let post = this.refs.content.refs.input.value;
+        let key = Pinyin.getFullChars(title,'-');
+        let name = "YoFoon";
+
+        let _this = this;
+        request
+            .post(ROUTER.post)
+            .send({ title: title, tag: tag, post: post, key: key, name: name })
+            .end( (err,res) => {
+                res = JSON.parse(res.text);
+
+                if(!res.status) {
+                    alert(res.err);
+                }
+            } )
     }
 
     selectChange(value) {

@@ -17,7 +17,7 @@ exports.default = function (req, res) {
 
     var page = req.params.page;
 
-    _blog2.default.find({}).limit(10).sort({ time: -1 }).exec(function (err, items) {
+    _blog2.default.find({}).limit(10).sort({ _id: -1 }).exec(function (err, items) {
 
         if (err) {
             return res.send(data);

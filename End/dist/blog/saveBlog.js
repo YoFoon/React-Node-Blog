@@ -26,11 +26,12 @@ exports.default = function (req, res) {
     };
 
     var name = req.body.name || 'YoFoon';
+    console.log(req.body.tag);
 
     SaveBlog.addBlog({
 
         name: name,
-        tags: req.body.tags,
+        tags: req.body.tag,
         post: req.body.post,
         time: time,
         key: req.body.key || req.body.title,
@@ -42,6 +43,7 @@ exports.default = function (req, res) {
         data.status = 0;
 
         if (err) {
+            data.err = err;
             return res.send(data);
         }
 

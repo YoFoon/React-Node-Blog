@@ -6,6 +6,7 @@ let ServiceConfig = {
     getList: SERVICE_URL + 'blog/list',
     getBlog: SERVICE_URL + 'blog/detail/',
     logIn: SERVICE_URL + 'blog/login',
+    post: SERVICE_URL + 'blog/post',
     commentUrl: COMMENT_url + '/view/blog/#/detail/'
 }
 

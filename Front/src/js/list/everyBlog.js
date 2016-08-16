@@ -14,14 +14,13 @@ export default class EveryBlog extends React.Component {
         
         let item = this.props.item;
 
-        // let converter = new showdown.Converter();
-        // let text      = '#hello, markdown!';
-        // let html      = converter.makeHtml(text);
+        let converter = new showdown.Converter();
+        let html      = converter.makeHtml(item.post);
 
         return(
             <div className="eachBlog">
                 <h2 className="title"><Link to={"/detail/"+item.key}>{item.title}</Link></h2>
-                <article dangerouslySetInnerHTML={{__html: item.post}}></article>
+                <article dangerouslySetInnerHTML={{__html: html}}></article>
                 <div className="meta">
                     <span className="time">{item.time.day}</span>
                     <span className="tag">on<a>{item.tags}</a></span>
